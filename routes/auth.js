@@ -24,7 +24,7 @@ router.post("/logout", (req,res)=>{
 router.post("/privateBoss", (req,res)=>{
   if(req.body.password !== req.body.confirmPassword){
     res.render("private", {err: "Las contraseñas no coinciden"})
-    return 
+    return res.redirect("/privateBoss");
   } 
   const {username, email, password, role} = req.body;
   User.register({username, email, role}, password) 
